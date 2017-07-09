@@ -35,7 +35,6 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/Car.o \
 	${OBJECTDIR}/main.o
 
 # Test Directory
@@ -74,11 +73,6 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/factorymethod: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/factorymethod ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/Car.o: Car.cpp
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Car.o Car.cpp
-
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -107,19 +101,6 @@ ${TESTDIR}/tests/FactoryTestRunner.o: tests/FactoryTestRunner.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 `cppunit-config --cflags` -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/FactoryTestRunner.o tests/FactoryTestRunner.cpp
 
-
-${OBJECTDIR}/Car_nomain.o: ${OBJECTDIR}/Car.o Car.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	@NMOUTPUT=`${NM} ${OBJECTDIR}/Car.o`; \
-	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
-	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
-	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
-	then  \
-	    ${RM} "$@.d";\
-	    $(COMPILE.cc) -g -std=c++11 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Car_nomain.o Car.cpp;\
-	else  \
-	    ${CP} ${OBJECTDIR}/Car.o ${OBJECTDIR}/Car_nomain.o;\
-	fi
 
 ${OBJECTDIR}/main_nomain.o: ${OBJECTDIR}/main.o main.cpp 
 	${MKDIR} -p ${OBJECTDIR}

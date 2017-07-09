@@ -15,7 +15,6 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>Car.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -51,8 +50,6 @@
           <standard>8</standard>
         </ccTool>
       </compileType>
-      <item path="Car.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="Car.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="CarCreator.h" ex="false" tool="3" flavor2="0">
@@ -103,8 +100,6 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="Car.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="Car.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="CarCreator.h" ex="false" tool="3" flavor2="0">

@@ -24,7 +24,7 @@ enum CarType {
 
 class Car {
 public:
-    virtual ~Car();
+    virtual ~Car(){}
     virtual string getName() = 0;
 };
 
